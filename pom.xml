@@ -111,6 +111,7 @@
       <dependency>
          <groupId>org.springframework.boot</groupId>
          <artifactId>spring-boot-starter-web</artifactId>
+         <scope>provided</scope>
       </dependency>
 
       <dependency>
@@ -127,6 +128,7 @@
       <dependency>
          <groupId>org.springframework.data</groupId>
          <artifactId>spring-data-redis</artifactId>
+         <scope>provided</scope>
       </dependency>
 
    </dependencies>
