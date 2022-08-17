@@ -8,7 +8,6 @@ import com.fasterxml.jackson.annotation.PropertyAccessor;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.boot.autoconfigure.AutoConfigureAfter;
 import org.springframework.boot.autoconfigure.condition.*;
-import org.springframework.boot.autoconfigure.data.redis.RedisAutoConfiguration;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.redis.connection.RedisConnectionFactory;
@@ -26,7 +25,6 @@ import java.io.Serializable;
 @Configuration(proxyBeanMethods = false)
 @ConditionalOnClass({ RedisTemplate.class })
 @ConditionalOnMissingBean(CacheOperator.class)
-@AutoConfigureAfter(RedisAutoConfiguration.class)
 @ConditionalOnBean(RedisConnectionFactory.class)
 @ConditionalOnProperty(name = "javafamily.cache.type", havingValue = "REDIS")
 public class RedisConfig {

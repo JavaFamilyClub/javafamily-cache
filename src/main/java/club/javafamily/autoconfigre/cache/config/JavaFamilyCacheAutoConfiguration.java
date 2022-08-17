@@ -1,6 +1,8 @@
 package club.javafamily.autoconfigre.cache.config;
 
 import club.javafamily.autoconfigre.cache.properties.JavaFamilyCacheProperties;
+import org.springframework.boot.autoconfigure.AutoConfigureAfter;
+import org.springframework.boot.autoconfigure.data.redis.RedisAutoConfiguration;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
@@ -12,6 +14,7 @@ import org.springframework.context.annotation.Import;
  */
 @Configuration(proxyBeanMethods = false)
 @EnableConfigurationProperties(JavaFamilyCacheProperties.class)
+@AutoConfigureAfter(RedisAutoConfiguration.class)
 @Import({
    CaffeineConfig.class,
    RedisConfig.class
