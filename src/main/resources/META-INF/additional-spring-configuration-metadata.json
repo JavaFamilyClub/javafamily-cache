@@ -1,0 +1,57 @@
+{
+   "groups": [
+      {
+         "name": "javafamily.cache",
+         "type": "club.javafamily.autoconfigre.cache.properties.JavaFamilyCacheProperties",
+         "sourceType": "club.javafamily.autoconfigre.cache.properties.JavaFamilyCacheProperties"
+      },
+      {
+         "name": "javafamily.cache.caffeine",
+         "type": "club.javafamily.autoconfigre.cache.properties.JavaFamilyCacheProperties$Caffeine",
+         "sourceType": "club.javafamily.autoconfigre.cache.properties.JavaFamilyCacheProperties",
+         "sourceMethod": "getCaffeine()"
+      }
+   ],
+   "properties": [
+      {
+         "name": "javafamily.cache.type",
+         "type": "club.javafamily.autoconfigre.cache.enums.CacheType",
+         "description": "Cache type. By default, auto-detected according to the environment.",
+         "sourceType": "club.javafamily.autoconfigre.cache.properties.JavaFamilyCacheProperties"
+      },
+      {
+         "name": "javafamily.cache.cache-null-values",
+         "type": "java.lang.Boolean",
+         "description": "Allow caching null values.",
+         "sourceType": "club.javafamily.autoconfigre.cache.properties.JavaFamilyCacheProperties",
+         "defaultValue": true
+      },
+      {
+         "name": "javafamily.cache.redis.key-prefix",
+         "type": "java.lang.String",
+         "description": "Key prefix.",
+         "sourceType": "club.javafamily.autoconfigre.cache.properties.JavaFamilyCacheProperties"
+      },
+      {
+         "name": "javafamily.cache.redis.time-to-live",
+         "type": "java.time.Duration",
+         "description": "Entry expiration. By default the entries never expire.",
+         "sourceType": "club.javafamily.autoconfigre.cache.properties.JavaFamilyCacheProperties"
+      },
+      {
+         "name": "javafamily.cache.redis.use-key-prefix",
+         "type": "java.lang.Boolean",
+         "description": "Whether to use the key prefix when writing to Redis.",
+         "sourceType": "club.javafamily.autoconfigre.cache.properties.JavaFamilyCacheProperties",
+         "defaultValue": true
+      },
+      {
+         "name": "javafamily.cache.caffeine.spec",
+         "type": "java.lang.String",
+         "description": "The spec to use to create caches. See CaffeineSpec for more details on the spec format.",
+         "sourceType": "club.javafamily.autoconfigre.cache.properties.JavaFamilyCacheProperties$Caffeine"
+      }
+   ],
+   "hints": [
+   ]
+}
