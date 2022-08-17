@@ -56,7 +56,12 @@ public class RedisCacheOperator implements CacheOperator {
       final ValueOperations<String, CacheTarget> opsForValue
          = redisTemplate.opsForValue();
 
-      opsForValue.set(key, cache, ttl);
+      if(ttl != null && !ttl.isNegative() && !ttl.isZero()) {
+         opsForValue.set(key, cache, ttl);
+      }
+      else {
+         opsForValue.set(key, cache);
+      }
    }
 
    @Override

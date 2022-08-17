@@ -24,6 +24,7 @@ import java.io.Serializable;
 @Configuration(proxyBeanMethods = false)
 @ConditionalOnClass({ RedisTemplate.class })
 @ConditionalOnMissingBean(CacheOperator.class)
+@ConditionalOnBean(RedisConnectionFactory.class)
 @ConditionalOnProperty(name = "javafamily.cache.type", havingValue = "REDIS")
 public class RedisConfig {
 
