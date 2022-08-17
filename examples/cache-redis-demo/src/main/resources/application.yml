@@ -1,0 +1,16 @@
+spring:
+  redis:
+    host: hxt.yijiweather.com
+    port: 6379
+    password: yiJi123!!
+    database: 5
+    lettuce:
+      pool:
+        max-active: 20
+
+javafamily:
+  cache:
+    type: redis
+    time-to-live: 5s
+    cache-null-values: off
+    key-prefix: javafamily-

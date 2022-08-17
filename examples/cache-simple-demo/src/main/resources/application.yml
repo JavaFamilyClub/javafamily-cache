@@ -1,0 +1,10 @@
+
+javafamily:
+  cache:
+    type: CAFFEINE
+    time-to-live: 5s
+    cache-null-values: off
+    key-prefix: javafamily-
+    caffeine:
+      init-size: 10
+      recordStats: true
