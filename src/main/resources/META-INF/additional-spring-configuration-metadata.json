@@ -27,19 +27,19 @@
          "defaultValue": true
       },
       {
-         "name": "javafamily.cache.redis.key-prefix",
+         "name": "javafamily.cache.key-prefix",
          "type": "java.lang.String",
          "description": "Key prefix.",
          "sourceType": "club.javafamily.autoconfigre.cache.properties.JavaFamilyCacheProperties"
       },
       {
-         "name": "javafamily.cache.redis.time-to-live",
+         "name": "javafamily.cache.time-to-live",
          "type": "java.time.Duration",
          "description": "Entry expiration. By default the entries never expire.",
          "sourceType": "club.javafamily.autoconfigre.cache.properties.JavaFamilyCacheProperties"
       },
       {
-         "name": "javafamily.cache.redis.use-key-prefix",
+         "name": "javafamily.cache.use-key-prefix",
          "type": "java.lang.Boolean",
          "description": "Whether to use the key prefix when writing to Redis.",
          "sourceType": "club.javafamily.autoconfigre.cache.properties.JavaFamilyCacheProperties",
