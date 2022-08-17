@@ -34,7 +34,7 @@ public interface CacheOperator {
     * @param key 缓存 key
     * @param cache 缓存
     */
-   default <T> void set(String key, @Nullable T cache) {
+   default <T> void setValue(String key, @Nullable T cache) {
       if(!isCacheNullValues() && cache == null) {
          return;
       }
