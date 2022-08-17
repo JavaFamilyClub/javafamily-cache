@@ -39,11 +39,29 @@ public class CaffeineCacheOperator implements CacheOperator {
          key = prefix + key;
       }
 
+      if(!isCacheNullValues() && (cache == null || cache.get() == null)) {
+         deleteKey(key);
+         return;
+      }
+
       caffeine.put(key, cache);
    }
 
    @Override
    public boolean isCacheNullValues() {
       return cacheNullValues;
+   }
+
+   /**
+    * 删除 key
+    *
+    * @param key key
+    * @return 是否成功
+    */
+   @Override
+   public Boolean deleteKey(String key) {
+      caffeine.invalidate(key);
+
+      return true;
    }
 }

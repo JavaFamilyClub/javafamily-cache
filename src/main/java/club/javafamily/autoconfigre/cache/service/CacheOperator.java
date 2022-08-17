@@ -35,10 +35,6 @@ public interface CacheOperator {
     * @param cache 缓存
     */
    default <T> void setValue(String key, @Nullable T cache) {
-      if(!isCacheNullValues() && cache == null) {
-         return;
-      }
-
       set(key, new DefaultCacheTarget<>(cache));
    }
 
@@ -54,4 +50,11 @@ public interface CacheOperator {
     * @return bool
     */
    boolean isCacheNullValues();
+
+   /**
+    * 删除 key
+    * @param key key
+    * @return 是否成功
+    */
+   Boolean deleteKey(String key);
 }

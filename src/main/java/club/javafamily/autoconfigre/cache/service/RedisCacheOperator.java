@@ -45,12 +45,13 @@ public class RedisCacheOperator implements CacheOperator {
 
    @Override
    public void set(String key, @NonNull CacheTarget cache) {
-      if(!isCacheNullValues() && cache.get() == null) {
-         return;
-      }
-
       if (StringUtils.hasText(prefix)) {
          key = prefix + key;
+      }
+
+      if(!isCacheNullValues() && (cache == null || cache.get() == null)) {
+         deleteKey(key);
+         return;
       }
 
       final ValueOperations<String, CacheTarget> opsForValue
@@ -67,5 +68,16 @@ public class RedisCacheOperator implements CacheOperator {
    @Override
    public boolean isCacheNullValues() {
       return cacheNullValues;
+   }
+
+   /**
+    * 删除 key
+    *
+    * @param key key
+    * @return 是否成功
+    */
+   @Override
+   public Boolean deleteKey(String key) {
+      return redisTemplate.delete(key);
    }
 }
