@@ -35,6 +35,11 @@ public interface CacheOperator {
     * @param cache 缓存
     */
    default <T> void setValue(String key, @Nullable T cache) {
+      if(!isCacheNullValues() && cache == null) {
+         deleteKey(buildKey(key));
+         return;
+      }
+
       set(key, new DefaultCacheTarget<>(cache));
    }
 
@@ -57,4 +62,11 @@ public interface CacheOperator {
     * @return 是否成功
     */
    Boolean deleteKey(String key);
+
+   /**
+    * 构建完整 key
+    * @param key 用户 key
+    * @return 系统 key
+    */
+   String buildKey(String key);
 }

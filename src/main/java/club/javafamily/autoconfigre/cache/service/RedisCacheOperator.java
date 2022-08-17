@@ -80,4 +80,19 @@ public class RedisCacheOperator implements CacheOperator {
    public Boolean deleteKey(String key) {
       return redisTemplate.delete(key);
    }
+
+   /**
+    * 构建完整 key
+    *
+    * @param key 用户 key
+    * @return 系统 key
+    */
+   @Override
+   public String buildKey(String key) {
+      if (StringUtils.hasText(prefix)) {
+         return prefix + key;
+      }
+
+      return key;
+   }
 }
