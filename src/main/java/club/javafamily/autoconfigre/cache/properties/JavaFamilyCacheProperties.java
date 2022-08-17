@@ -86,6 +86,11 @@ public class JavaFamilyCacheProperties {
    public static class Caffeine {
 
       /**
+       * spec format
+       */
+      private String spec;
+
+      /**
        * 初始化容量
        */
       private Integer initSize = 100;
@@ -95,13 +100,33 @@ public class JavaFamilyCacheProperties {
        */
       private Long maxSize = 2000L;
 
+      /**
+       * key 是否启用软引用
+       */
       private boolean weakKeys;
 
+      /**
+       * value 是否启用软引用
+       */
       private boolean weakValues;
 
+      /**
+       * value 是否启用软引用
+       */
       private boolean softValues;
 
+      /**
+       * 是否记录状态
+       */
       private boolean recordStats;
+
+      public String getSpec() {
+         return spec;
+      }
+
+      public void setSpec(String spec) {
+         this.spec = spec;
+      }
 
       public Integer getInitSize() {
          return initSize;

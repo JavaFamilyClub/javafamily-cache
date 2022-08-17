@@ -50,6 +50,48 @@
          "type": "java.lang.String",
          "description": "The spec to use to create caches. See CaffeineSpec for more details on the spec format.",
          "sourceType": "club.javafamily.autoconfigre.cache.properties.JavaFamilyCacheProperties$Caffeine"
+      },
+      {
+         "name": "javafamily.cache.caffeine.initSize",
+         "type": "java.lang.Integer",
+         "description": "初始化容量.",
+         "sourceType": "club.javafamily.autoconfigre.cache.properties.JavaFamilyCacheProperties$Caffeine",
+         "defaultValue": 100
+      },
+      {
+         "name": "javafamily.cache.caffeine.maxSize",
+         "type": "java.lang.Long",
+         "description": "最大容量.",
+         "sourceType": "club.javafamily.autoconfigre.cache.properties.JavaFamilyCacheProperties$Caffeine",
+         "defaultValue": 2000
+      },
+      {
+         "name": "javafamily.cache.caffeine.weakKeys",
+         "type": "java.lang.Boolean",
+         "description": "key 是否启用软引用.",
+         "sourceType": "club.javafamily.autoconfigre.cache.properties.JavaFamilyCacheProperties$Caffeine",
+         "defaultValue": false
+      },
+      {
+         "name": "javafamily.cache.caffeine.weakValues",
+         "type": "java.lang.Boolean",
+         "description": "value 是否启用软引用.",
+         "sourceType": "club.javafamily.autoconfigre.cache.properties.JavaFamilyCacheProperties$Caffeine",
+         "defaultValue": false
+      },
+      {
+         "name": "javafamily.cache.caffeine.softValues",
+         "type": "java.lang.Boolean",
+         "description": "value 是否启用软引用.",
+         "sourceType": "club.javafamily.autoconfigre.cache.properties.JavaFamilyCacheProperties$Caffeine",
+         "defaultValue": false
+      },
+      {
+         "name": "javafamily.cache.caffeine.recordStats",
+         "type": "java.lang.Boolean",
+         "description": "是否启用状态记录.",
+         "sourceType": "club.javafamily.autoconfigre.cache.properties.JavaFamilyCacheProperties$Caffeine",
+         "defaultValue": false
       }
    ],
    "hints": [
