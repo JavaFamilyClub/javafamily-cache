@@ -1,5 +1,6 @@
 package club.javafamily.autoconfigre.cache.cache;
 
+import java.io.Serializable;
 import java.util.Optional;
 
 /**
@@ -7,7 +8,7 @@ import java.util.Optional;
  * @date 2022/8/17 下午4:08
  * @description
  */
-public interface CacheTarget {
+public interface CacheTarget extends Serializable {
 
    static final long serialVersionUID = 1L;
 
