@@ -53,12 +53,12 @@
 
 | 属性 | 类型 | 描述 | 默认值 |
  |   --   |   -   |   -----   |   --   |
-| javafamily.cache.type                 | CacheType | Cache type. By default, auto-detected according to the environment.                     |       |
+| javafamily.cache.type                 | CacheType | Cache type. support caffeine/redis |   caffeine    |
 | javafamily.cache.cache-null-values    | java.lang.Boolean                                  | Allow caching null values.                                                              | true  |
 | javafamily.cache.key-prefix           | java.lang.String                                   | Key prefix.                                                                             |       |
 | javafamily.cache.time-to-live         | java.time.Duration                                 | Entry expiration. By default the entries never expire.                                  |       |
-| javafamily.cache.use-key-prefix       | java.lang.Boolean                                  | Whether to use the key prefix when writing to Redis.                                    | true  |
-| javafamily.cache.caffeine.spec        | java.lang.String                                   | The spec to use to create caches. See CaffeineSpec for more details on the spec format. |       |
+| javafamily.cache.use-key-prefix       | java.lang.Boolean                                  | Whether to use the key prefix when writing to cache.                                    | true  |
+| javafamily.cache.caffeine.spec        | java.lang.String                                   | The spec to use to create caches. |       |
 | javafamily.cache.caffeine.initSize    | java.lang.Integer                                  | 初始化容量.                                                                                  | 100   |
 | javafamily.cache.caffeine.maxSize     | java.lang.Long                                     | 最大容量.                                                                                   | 2000  |
 | javafamily.cache.caffeine.weakKeys    | java.lang.Boolean                                  | key 是否启用软引用.                                                                            | false |
