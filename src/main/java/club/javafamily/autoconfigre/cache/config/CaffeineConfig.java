@@ -31,42 +31,38 @@ public class CaffeineConfig {
 
    @Bean
    @ConditionalOnMissingBean
-   public Cache<Object, CacheTarget> caffeine() {
+   public CacheOperator cacheOperator() {
       final JavaFamilyCacheProperties.Caffeine caffeineConf
-         = cacheProperties.getCaffeine();
+              = cacheProperties.getCaffeine();
 
-      final Caffeine<Object, Object> caffeine = Caffeine.newBuilder()
-         .initialCapacity(caffeineConf.getInitSize())
-         .maximumSize(caffeineConf.getMaxSize());
+      final Caffeine<Object, Object> caffeineBuilder = Caffeine.newBuilder()
+              .initialCapacity(caffeineConf.getInitSize())
+              .maximumSize(caffeineConf.getMaxSize());
 
       final Duration ttl = cacheProperties.getTimeToLive();
 
       if(ttl != null) {
-         caffeine.expireAfterWrite(ttl);
+         caffeineBuilder.expireAfterWrite(ttl);
       }
 
       if(caffeineConf.isWeakKeys()) {
-         caffeine.weakKeys();
+         caffeineBuilder.weakKeys();
       }
 
       if(caffeineConf.isWeakValues()) {
-         caffeine.weakValues();
+         caffeineBuilder.weakValues();
       }
 
       if(caffeineConf.isSoftValues()) {
-         caffeine.softValues();
+         caffeineBuilder.softValues();
       }
 
       if(caffeineConf.isRecordStats()) {
-         caffeine.recordStats();
+         caffeineBuilder.recordStats();
       }
 
-      return caffeine.build();
-   }
+      Cache<Object, CacheTarget> caffeine = caffeineBuilder.build();
 
-   @Bean
-   @ConditionalOnMissingBean
-   public CacheOperator cacheOperator(Cache<Object, CacheTarget> caffeine) {
       String prefix = cacheProperties.isUseKeyPrefix()
          ? cacheProperties.getKeyPrefix()
          : null;
