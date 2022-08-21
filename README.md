@@ -87,4 +87,7 @@ class CacheSimpleDemoApplicationTests {
     }
 }
 ```
+## 4. 示例代码
 
+* `Caffeine`: [Caffeine 示例代码](./examples/cache-simple-demo)
+* `Redis`: [Redis 示例代码](./examples/cache-redis-demo)
