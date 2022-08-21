@@ -13,7 +13,6 @@ import org.springframework.context.annotation.Import;
  * @date 2022/8/17 下午3:58
  * @description cache auto configure
  */
-@Configuration(proxyBeanMethods = false)
 @EnableConfigurationProperties(JavaFamilyCacheProperties.class)
 @AutoConfigureAfter(RedisAutoConfiguration.class)
 @Import({

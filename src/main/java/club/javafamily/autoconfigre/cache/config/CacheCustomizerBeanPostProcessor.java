@@ -47,7 +47,7 @@ public class CacheCustomizerBeanPostProcessor implements BeanPostProcessor, Bean
 
     private Collection<CacheCustomizer> getCustomizers() {
         if (this.customizers == null) {
-            this.customizers = new ArrayList(this.getCacheCustomizerBeans());
+            this.customizers = new ArrayList<>(this.getCacheCustomizerBeans());
             this.customizers.sort(AnnotationAwareOrderComparator.INSTANCE);
             this.customizers = Collections.unmodifiableList(this.customizers);
         }
