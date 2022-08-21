@@ -51,8 +51,8 @@
 
 > 缓存组件底层目前提供 `caffeine` 及 `redis` 两种实现方式, 默认为 `caffeine` 实现, 可支持配置包括:
 
-| 属性                                    | 参数类型                                               | 描述信息                                                                                    | 默认值   |
-|---------------------------------------|----------------------------------------------------|-----------------------------------------------------------------------------------------|-------|
+| 属性 | 类型 | 描述 | 默认值 |
+ |   --   |   -   |   -----   |   --   |
 | javafamily.cache.type                 | club.javafamily.autoconfigre.cache.enums.CacheType | Cache type. By default, auto-detected according to the environment.                     |       |
 | javafamily.cache.cache-null-values    | java.lang.Boolean                                  | Allow caching null values.                                                              | true  |
 | javafamily.cache.key-prefix           | java.lang.String                                   | Key prefix.                                                                             |       |
