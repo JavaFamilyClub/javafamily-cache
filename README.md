@@ -53,7 +53,7 @@
 
 | 属性 | 类型 | 描述 | 默认值 |
  |   --   |   -   |   -----   |   --   |
-| javafamily.cache.type                 | club.javafamily.autoconfigre.cache.enums.CacheType | Cache type. By default, auto-detected according to the environment.                     |       |
+| javafamily.cache.type                 | CacheType | Cache type. By default, auto-detected according to the environment.                     |       |
 | javafamily.cache.cache-null-values    | java.lang.Boolean                                  | Allow caching null values.                                                              | true  |
 | javafamily.cache.key-prefix           | java.lang.String                                   | Key prefix.                                                                             |       |
 | javafamily.cache.time-to-live         | java.time.Duration                                 | Entry expiration. By default the entries never expire.                                  |       |
