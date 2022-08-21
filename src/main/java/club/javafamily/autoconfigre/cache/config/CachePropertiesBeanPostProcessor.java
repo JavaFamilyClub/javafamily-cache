@@ -1,22 +1,21 @@
 package club.javafamily.autoconfigre.cache.config;
 
 import club.javafamily.autoconfigre.cache.properties.JavaFamilyCacheProperties;
-import club.javafamily.autoconfigre.cache.service.CacheOperator;
 import org.springframework.beans.BeansException;
-import org.springframework.beans.factory.BeanFactory;
-import org.springframework.beans.factory.BeanFactoryAware;
-import org.springframework.beans.factory.ListableBeanFactory;
+import org.springframework.beans.factory.*;
 import org.springframework.beans.factory.config.BeanPostProcessor;
 import org.springframework.boot.util.LambdaSafe;
 import org.springframework.core.annotation.AnnotationAwareOrderComparator;
 import org.springframework.util.Assert;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Collections;
-import java.util.List;
+import java.util.*;
 
-public class CacheCustomizerBeanPostProcessor implements BeanPostProcessor, BeanFactoryAware {
+/**
+ * @author Jack Li
+ * @date 2022/8/21 下午10:22
+ * @description
+ */
+public class CachePropertiesBeanPostProcessor implements BeanPostProcessor, BeanFactoryAware {
 
     private ListableBeanFactory beanFactory;
     private List<CachePropertiesCustomizer> customizers;
@@ -29,8 +28,8 @@ public class CacheCustomizerBeanPostProcessor implements BeanPostProcessor, Bean
 
     @Override
     public Object postProcessBeforeInitialization(Object bean, String beanName) throws BeansException {
-        if(!(bean instanceof CacheOperator)) {
-            this.postProcessBeforeInitialization(beanFactory.getBean(JavaFamilyCacheProperties.class));
+        if(bean instanceof JavaFamilyCacheProperties) {
+            this.postProcessBeforeInitialization((JavaFamilyCacheProperties) bean);
         }
 
         return bean;
@@ -38,11 +37,11 @@ public class CacheCustomizerBeanPostProcessor implements BeanPostProcessor, Bean
 
     private void postProcessBeforeInitialization(JavaFamilyCacheProperties properties) {
         ((LambdaSafe.Callbacks<CachePropertiesCustomizer, JavaFamilyCacheProperties>) LambdaSafe.callbacks(CachePropertiesCustomizer.class, this.getCustomizers(), properties, new Object[0])
-                .withLogger(CacheCustomizerBeanPostProcessor.class))
-                .invoke((customizer) ->
-                {
-                    customizer.customize(properties);
-                });
+           .withLogger(CachePropertiesBeanPostProcessor.class))
+           .invoke((customizer) ->
+           {
+               customizer.customize(properties);
+           });
     }
 
     private Collection<CachePropertiesCustomizer> getCustomizers() {

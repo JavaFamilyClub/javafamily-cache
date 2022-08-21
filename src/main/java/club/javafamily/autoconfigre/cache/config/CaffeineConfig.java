@@ -6,11 +6,9 @@ import club.javafamily.autoconfigre.cache.service.CacheOperator;
 import club.javafamily.autoconfigre.cache.service.CaffeineCacheOperator;
 import com.github.benmanes.caffeine.cache.Cache;
 import com.github.benmanes.caffeine.cache.Caffeine;
-import org.springframework.beans.factory.ObjectProvider;
 import org.springframework.boot.autoconfigure.condition.*;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.DependsOn;
 
 import java.time.Duration;
 
@@ -23,7 +21,6 @@ import java.time.Duration;
 @ConditionalOnClass({ Caffeine.class })
 @ConditionalOnMissingBean(CacheOperator.class)
 @ConditionalOnProperty(name = "javafamily.cache.type", havingValue = "CAFFEINE", matchIfMissing = true)
-@DependsOn({ "cacheCustomizerConf" })
 public class CaffeineConfig {
 
    private final JavaFamilyCacheProperties cacheProperties;

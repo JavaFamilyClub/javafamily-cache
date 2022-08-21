@@ -6,11 +6,9 @@ import club.javafamily.autoconfigre.cache.service.RedisCacheOperator;
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.PropertyAccessor;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import org.springframework.boot.autoconfigure.AutoConfigureAfter;
 import org.springframework.boot.autoconfigure.condition.*;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.DependsOn;
 import org.springframework.data.redis.connection.RedisConnectionFactory;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.serializer.Jackson2JsonRedisSerializer;
@@ -28,7 +26,6 @@ import java.io.Serializable;
 @ConditionalOnMissingBean(CacheOperator.class)
 @ConditionalOnBean(RedisConnectionFactory.class)
 @ConditionalOnProperty(name = "javafamily.cache.type", havingValue = "REDIS")
-@DependsOn({ "cacheCustomizerConf" })
 public class RedisConfig {
 
    @Bean("redisTemplate")
