@@ -6,7 +6,7 @@ import club.javafamily.autoconfigre.cache.properties.JavaFamilyCacheProperties;
  * cache customizer
  */
 @FunctionalInterface
-public interface CacheCustomizer {
+public interface CachePropertiesCustomizer {
 
     void customize(JavaFamilyCacheProperties properties);
 

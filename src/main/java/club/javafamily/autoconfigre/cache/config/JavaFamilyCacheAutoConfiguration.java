@@ -7,6 +7,7 @@ import org.springframework.boot.context.properties.EnableConfigurationProperties
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
+import org.springframework.core.annotation.Order;
 
 /**
  * @author Jack Li
@@ -16,14 +17,15 @@ import org.springframework.context.annotation.Import;
 @EnableConfigurationProperties(JavaFamilyCacheProperties.class)
 @AutoConfigureAfter(RedisAutoConfiguration.class)
 @Import({
+   CacheCustomizerConf.class,
    CaffeineConfig.class,
    RedisConfig.class
 })
 public class JavaFamilyCacheAutoConfiguration {
 
-    @Bean
-    public CacheCustomizerBeanPostProcessor cacheCustomizerBeanPostProcessor() {
-        return new CacheCustomizerBeanPostProcessor();
-    }
+//    @Bean
+//    public CacheCustomizerBeanPostProcessor cacheCustomizerBeanPostProcessor() {
+//        return new CacheCustomizerBeanPostProcessor();
+//    }
 
 }

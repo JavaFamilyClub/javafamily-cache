@@ -19,7 +19,7 @@ import java.util.List;
 public class CacheCustomizerBeanPostProcessor implements BeanPostProcessor, BeanFactoryAware {
 
     private ListableBeanFactory beanFactory;
-    private List<CacheCustomizer> customizers;
+    private List<CachePropertiesCustomizer> customizers;
 
     @Override
     public void setBeanFactory(BeanFactory beanFactory) throws BeansException {
@@ -37,7 +37,7 @@ public class CacheCustomizerBeanPostProcessor implements BeanPostProcessor, Bean
     }
 
     private void postProcessBeforeInitialization(JavaFamilyCacheProperties properties) {
-        ((LambdaSafe.Callbacks<CacheCustomizer, JavaFamilyCacheProperties>) LambdaSafe.callbacks(CacheCustomizer.class, this.getCustomizers(), properties, new Object[0])
+        ((LambdaSafe.Callbacks<CachePropertiesCustomizer, JavaFamilyCacheProperties>) LambdaSafe.callbacks(CachePropertiesCustomizer.class, this.getCustomizers(), properties, new Object[0])
                 .withLogger(CacheCustomizerBeanPostProcessor.class))
                 .invoke((customizer) ->
                 {
@@ -45,7 +45,7 @@ public class CacheCustomizerBeanPostProcessor implements BeanPostProcessor, Bean
                 });
     }
 
-    private Collection<CacheCustomizer> getCustomizers() {
+    private Collection<CachePropertiesCustomizer> getCustomizers() {
         if (this.customizers == null) {
             this.customizers = new ArrayList<>(this.getCacheCustomizerBeans());
             this.customizers.sort(AnnotationAwareOrderComparator.INSTANCE);
@@ -55,8 +55,8 @@ public class CacheCustomizerBeanPostProcessor implements BeanPostProcessor, Bean
         return this.customizers;
     }
 
-    private Collection<CacheCustomizer> getCacheCustomizerBeans() {
-        return this.beanFactory.getBeansOfType(CacheCustomizer.class, false, false).values();
+    private Collection<CachePropertiesCustomizer> getCacheCustomizerBeans() {
+        return this.beanFactory.getBeansOfType(CachePropertiesCustomizer.class, false, false).values();
     }
 
 }
