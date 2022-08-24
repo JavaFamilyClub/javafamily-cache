@@ -15,7 +15,7 @@
 <dependency>
    <groupId>club.javafamily</groupId>
    <artifactId>javafamily-cache</artifactId>
-   <version>2.3.2-beta.2</version>
+   <version>2.3.2-beta.3</version>
 </dependency>
 ```
 
@@ -64,7 +64,7 @@
 | javafamily.cache.caffeine.weakKeys    | java.lang.Boolean                                  | key 是否启用软引用.                                                                            | false |
 | javafamily.cache.caffeine.weakValues  | java.lang.Boolean                                  | value 是否启用软引用.                                                                          | false |
 | javafamily.cache.caffeine.softValues  | java.lang.Boolean                                  | value 是否启用软引用.                                                                          | false |
-| javafamily.cache.caffeine.recordStats | java.lang.Boolean                                  | 是否启用状态记录.                                                                               | false | 
+| javafamily.cache.caffeine.recordStats | java.lang.Boolean                                  | 是否启用状态记录.                                                                               | false |
 
 ## 3. 使用
 
