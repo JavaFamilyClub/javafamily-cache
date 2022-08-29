@@ -18,7 +18,7 @@ public class DefaultCacheTarget<T> implements CacheTarget {
    }
 
    @Override
-   public T get() {
+   public T find() {
       return value;
    }
 

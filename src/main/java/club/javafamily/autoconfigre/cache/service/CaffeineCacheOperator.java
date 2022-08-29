@@ -39,7 +39,7 @@ public class CaffeineCacheOperator implements CacheOperator {
          key = prefix + key;
       }
 
-      if(!isCacheNullValues() && (cache == null || cache.get() == null)) {
+      if(!isCacheNullValues() && (cache == null || cache.find() == null)) {
          deleteKey(key);
          return;
       }
