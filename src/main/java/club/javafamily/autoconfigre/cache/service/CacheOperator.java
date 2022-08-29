@@ -26,7 +26,7 @@ public interface CacheOperator {
    default <T> T getValue(String key) {
       final CacheTarget cacheTarget = get(key);
 
-      return cacheTarget != null ? cacheTarget.get() : null;
+      return cacheTarget != null ? cacheTarget.find() : null;
    }
 
    /**

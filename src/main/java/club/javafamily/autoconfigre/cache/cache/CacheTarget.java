@@ -17,7 +17,7 @@ public interface CacheTarget extends Serializable {
     * @param <T> 对象类型
     * @return 缓存对象
     */
-   <T> T get();
+   <T> T find();
 
    /**
     * 带默认值获取
@@ -25,8 +25,8 @@ public interface CacheTarget extends Serializable {
     * @param <T> 对象类型
     * @return 缓存对象
     */
-   default <T> T getOrElse(T defaultValue) {
-      final T obj = get();
+   default <T> T findOrElse(T defaultValue) {
+      final T obj = find();
 
       return obj == null ? defaultValue : obj;
    }
@@ -36,8 +36,8 @@ public interface CacheTarget extends Serializable {
     * @param <T> 对象类型
     * @return 缓存对象
     */
-   default <T> T getOrElseThrow() {
-      return Optional.<T>ofNullable(get()).orElseThrow(() ->
+   default <T> T findOrElseThrow() {
+      return Optional.<T>ofNullable(find()).orElseThrow(() ->
          new NullPointerException("缓存值不存在!"));
    }
 
